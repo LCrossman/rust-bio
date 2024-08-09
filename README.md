@@ -6,6 +6,16 @@
 [![DOI](https://zenodo.org/badge/29821195.svg)](https://zenodo.org/badge/latestdoi/29821195)
 
 
+**This is a side-project for functions specifically aimed at bioinformatics for the Microbiology community including whole genomes, transcriptomes and metagenomics
+
+The focus is on core functionality and tools that are widely used.  
+The idea is to design scripts and tools to be modular and easy to integrate into workflows.
+
+If you'd like to join with writing that is much appreciated - please also write usable tests :)
+
+We are built on Rust-Bio - as below please see further:
+
+
 # <img src="./img/bioferris.svg" width=50em alt="Rust-Bio logo" /> Rust-Bio, a bioinformatics library for Rust.
 
 This library provides [Rust](https://www.rust-lang.org) implementations of algorithms and data structures useful for bioinformatics.
