@@ -6,7 +6,7 @@
 [![DOI](https://zenodo.org/badge/29821195.svg)](https://zenodo.org/badge/latestdoi/29821195)
 
 
-**This is a side-project for functions specifically aimed at bioinformatics for the Microbiology community including whole genomes, transcriptomes and metagenomics
+# This is a side-project for functions specifically aimed at bioinformatics for the Microbiology community including whole genomes, transcriptomes and metagenomics
 
 The focus is on core functionality and tools that are widely used.  
 The idea is to design scripts and tools to be modular and easy to integrate into workflows.
