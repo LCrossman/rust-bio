@@ -109,6 +109,7 @@ use std::io;
 use std::io::prelude::*;
 use std::path::{Path, PathBuf};
 use thiserror::Error;
+use flate2::read::MultiGzDecoder;
 
 #[derive(Error, Debug)]
 pub enum Error {
@@ -595,7 +596,8 @@ IIIIIIJJJJJJ
 
     #[test]
     fn test_reader() {
-        let reader = Reader::new(FASTQ_FILE);
+        let gzreader = MultiGzDecoder::new(FASTQ_FILE)
+        let reader = Reader::new(gzreader);
         let records: Vec<Result<Record>> = reader.records().collect();
         assert_eq!(records.len(), 1);
         for res in records {
@@ -957,7 +959,20 @@ IIIIIIJJJJJJ
 
         assert!(Writer::to_file(path).is_ok())
     }
-
+    #[test]
+    fn count_gzipped_fastq {
+        let gzreader = MultiGzDecoder::new(io::stdin());
+	let mut reader = Reader::new(gzreader);
+	let mut record = Record::new();
+	let mut record_count = 0;
+	loop {
+	   reader.read(&mut record).expect("err");
+	   record_count+=1;
+	   if record.is_empty() {
+	      break;
+	      }
+	   };
+    }
     #[test]
     fn test_write_record() {
         let path = Path::new("test.fq");
